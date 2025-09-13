@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Sora', sans-serif;
+  background: #0f172a;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Neumorphism styles */
+.neumorphic {
+  background: #1e293b;
+  box-shadow: 
+    20px 20px 60px #0f172a,
+    -20px -20px 60px #334155;
+}
+
+.neumorphic-inset {
+  background: #334155;
+  box-shadow: 
+    inset 20px 20px 60px #0f172a,
+    inset -20px -20px 60px #475569;
+}
+
+/* Glassmorphism styles */
+.glassmorphic {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  color: #06b6d4;
+}
+
+/* Glowing effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+}
+
+/* Floating diamonds */
+.floating-diamond {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  transform: rotate(45deg);
+  filter: blur(0.5px);
+  animation: float 8s ease-in-out infinite, diamondRotate 12s linear infinite;
+}
+
+.floating-diamond:nth-child(1) {
+  background: rgba(6, 182, 212, 0.2);
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-diamond:nth-child(2) {
+  width: 80px;
+  height: 80px;
+  background: rgba(6, 182, 212, 0.15);
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.floating-diamond:nth-child(3) {
+  width: 50px;
+  height: 50px;
+  background: rgba(6, 182, 212, 0.25);
+  bottom: 30%;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+@keyframes diamondRotate {
+  0% { transform: rotate(45deg); }
+  100% { transform: rotate(405deg); }
+}
+
+/* Typing animation */
+.typing-animation {
+  overflow: hidden;
+  border-right: 3px solid #00f5ff;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #06b6d4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+/* Color utilities */
+.text-neon-blue {
+  color: #00f5ff;
+}
+
+.text-neon-teal {
+  color: #00ffaa;
+}
+
+.border-neon-blue {
+  border-color: #00f5ff;
+}
+
+.border-neon-teal {
+  border-color: #00ffaa;
+}
+
+.bg-neon-blue {
+  background-color: #00f5ff;
+}
+
+.from-neon-blue {
+  --tw-gradient-from: #00f5ff;
+}
+
+.to-neon-teal {
+  --tw-gradient-to: #00ffaa;
+}
+
+.from-neon-teal {
+  --tw-gradient-from: #00ffaa;
+}
+
+/* Background Animations */
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes driftAnim {
+  0% { transform: translateX(-100px) rotate(0deg); }
+  100% { transform: translateX(100vw) rotate(360deg); }
+}
+
+/* Advanced Diamond Wave Animations */
+@keyframes crystalWave {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(45deg) scale(1) rotateX(0deg) rotateY(0deg);
+    opacity: 0.12;
+  }
+  25% {
+    transform: translateY(-40px) translateX(30px) rotate(90deg) scale(1.2) rotateX(15deg) rotateY(15deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-60px) translateX(-20px) rotate(135deg) scale(0.8) rotateX(30deg) rotateY(30deg);
+    opacity: 0.15;
+  }
+  75% {
+    transform: translateY(-30px) translateX(40px) rotate(180deg) scale(1.1) rotateX(45deg) rotateY(45deg);
+    opacity: 0.18;
+  }
+}
+
+@keyframes prismFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1) skewX(0deg);
+    opacity: 0.15;
+  }
+  33% {
+    transform: translateY(-35px) translateX(25px) rotate(120deg) scale(1.3) skewX(10deg);
+    opacity: 0.25;
+  }
+  66% {
+    transform: translateY(-50px) translateX(-30px) rotate(240deg) scale(0.7) skewX(-10deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes facetSpin {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(45deg) scale(1);
+    opacity: 0.2;
+  }
+  25% {
+    transform: translateY(-20px) translateX(15px) rotate(135deg) scale(1.4);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-35px) translateX(-25px) rotate(225deg) scale(0.6);
+    opacity: 0.15;
+  }
+  75% {
+    transform: translateY(-15px) translateX(35px) rotate(315deg) scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(405deg) scale(1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes lightRefract {
+  0%, 100% {
+    transform: scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1) rotate(45deg);
+    opacity: 0.6;
+  }
+  30% {
+    transform: scale(1.5) rotate(90deg);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1.2) rotate(135deg);
+    opacity: 0.8;
+  }
+  60% {
+    transform: scale(0.8) rotate(180deg);
+    opacity: 0.4;
+  }
+  85% {
+    transform: scale(0.3) rotate(270deg);
+    opacity: 0.2;
+  }
+}
