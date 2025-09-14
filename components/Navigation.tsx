@@ -58,8 +58,8 @@ const Navigation = () => {
         ))}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
           <motion.div 
             whileHover={{ scale: 1.05 }}
@@ -109,7 +109,7 @@ const Navigation = () => {
 
           {/* Enhanced Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-6">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -152,6 +152,50 @@ const Navigation = () => {
                   />
                 </motion.a>
               ))}
+              
+              {/* Social Links */}
+              <div className="flex items-center space-x-3 ml-6 pl-6 border-l border-cyan-400/30">
+                <motion.a
+                  href="https://github.com/bhupesh052"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="p-2 rounded-lg bg-slate-800/50 border border-cyan-400/20 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd" />
+                  </svg>
+                </motion.a>
+                
+                <motion.a
+                  href="https://linkedin.com/in/bhupesh-kumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="p-2 rounded-lg bg-slate-800/50 border border-cyan-400/20 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"/>
+                  </svg>
+                </motion.a>
+                
+                <motion.a
+                  href="https://instagram.com/bhupesh_kumar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="p-2 rounded-lg bg-slate-800/50 border border-cyan-400/20 text-cyan-400 hover:bg-cyan-400/10 transition-all duration-300"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2.163c2.204 0 2.466.009 3.337.048.805.036 1.243.166 1.535.276.386.15.661.328.95.616.288.29.467.564.617.95.11.292.24.73.276 1.535.039.871.048 1.133.048 3.337s-.009 2.466-.048 3.337c-.036.805-.166 1.243-.276 1.535-.15.386-.329.661-.617.95-.289.288-.564.467-.95.617-.292.11-.73.24-1.535.276-.871.039-1.133.048-3.337.048s-2.466-.009-3.337-.048c-.805-.036-1.243-.166-1.535-.276a2.578 2.578 0 01-.95-.617 2.578 2.578 0 01-.617-.95c-.11-.292-.24-.73-.276-1.535C2.172 12.466 2.163 12.204 2.163 10s.009-2.466.048-3.337c.036-.805.166-1.243.276-1.535.15-.386.328-.661.617-.95.289-.288.564-.467.95-.617.292-.11.73-.24 1.535-.276C7.534 2.172 7.796 2.163 10 2.163M10 0C7.741 0 7.444.01 6.544.048 5.647.087 5.017.222 4.482.42a4.412 4.412 0 00-1.596 1.04A4.412 4.412 0 001.846 3.056C1.648 3.59 1.513 4.22 1.474 5.117.436 6.018.426 6.315.426 8.574v2.852c0 2.259.01 2.556.048 3.456.039.897.174 1.527.372 2.062a4.412 4.412 0 001.04 1.596 4.412 4.412 0 001.596 1.04c.535.198 1.165.333 2.062.372C7.444 19.99 7.741 20 10 20s2.556-.01 3.456-.048c.897-.039 1.527-.174 2.062-.372a4.412 4.412 0 001.596-1.04 4.412 4.412 0 001.04-1.596c.198-.535.333-1.165.372-2.062C19.99 12.556 20 12.259 20 10s-.01-2.556-.048-3.456c-.039-.897-.174-1.527-.372-2.062a4.412 4.412 0 00-1.04-1.596A4.412 4.412 0 0016.944.42C16.409.222 15.779.087 14.882.048 13.982.01 13.685 0 11.426 0H8.574z"/>
+                    <path d="M10 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666z"/>
+                    <circle cx="15.338" cy="4.662" r="1.2"/>
+                  </svg>
+                </motion.a>
+              </div>
             </div>
           </div>
 

@@ -83,16 +83,34 @@ const Footer = () => {
             ))}
           </motion.div>
 
-          {/* Follow Text */}
-          <motion.p
+          {/* Thanks Message */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="text-gray-300 text-lg mb-6"
+            className="mb-6"
           >
-            Follow me on social media for updates and insights
-          </motion.p>
+            <motion.p
+              className="text-cyan-400 text-xl font-semibold mb-2"
+              animate={{
+                textShadow: [
+                  '0 0 10px rgba(6, 182, 212, 0.5)',
+                  '0 0 20px rgba(6, 182, 212, 0.8)',
+                  '0 0 10px rgba(6, 182, 212, 0.5)'
+                ]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity
+              }}
+            >
+              Thank You for Visiting! 🙏
+            </motion.p>
+            <p className="text-gray-300 text-lg">
+              I appreciate you taking the time to explore my portfolio. Let's connect and build something amazing together!
+            </p>
+          </motion.div>
 
 
         </div>

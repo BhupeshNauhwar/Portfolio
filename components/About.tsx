@@ -53,15 +53,15 @@ const About = () => {
     <motion.div
       variants={itemVariants}
       whileHover={{ 
-        scale: 1.08, 
-        boxShadow: "0 0 25px rgba(6, 182, 212, 0.3)"
+        scale: 1.15,
+        y: -8,
+        boxShadow: "0 8px 25px rgba(6, 182, 212, 0.4)"
       }}
-      className="bg-slate-700/20 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-3 md:p-4 text-center group cursor-pointer hover:bg-slate-700/30 hover:border-cyan-400/30 transition-all duration-300"
+      className="bg-slate-700/20 backdrop-blur-sm border-2 border-cyan-500/30 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center group cursor-pointer hover:bg-slate-700/40 hover:border-cyan-400/60 transition-all duration-300"
     >
-      <div className="text-xl md:text-2xl mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+      <div className="text-lg md:text-xl group-hover:scale-110 transition-transform duration-300">
         {skillIcons[skill.name] || <span>{skill.icon}</span>}
       </div>
-      <h4 className="font-medium text-white text-xs leading-tight">{skill.name}</h4>
     </motion.div>
   );
 
@@ -202,7 +202,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4"
+                className="flex flex-wrap justify-center gap-4 md:gap-6"
               >
                 {skills["Programming Languages & Frameworks"].map((skill, index) => (
                   <SkillCard key={skill.name} skill={skill} index={index} />
@@ -220,7 +220,7 @@ const About = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 md:gap-4"
+                className="flex flex-wrap justify-center gap-4 md:gap-6"
               >
                 {skills["Tools & Technologies"].map((skill, index) => (
                   <SkillCard key={skill.name} skill={skill} index={index} />

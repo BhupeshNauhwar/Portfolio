@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { projects } from '../app/data';
 import Image from 'next/image';
 
+
 const Projects = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,23 +24,127 @@ const Projects = () => {
   const ProjectCard = ({ project, index }: { project: any, index: number }) => (
     <motion.div
       variants={itemVariants}
-      whileHover={{ y: -8, scale: 1.02 }}
       className="group h-full"
     >
-      <div className="relative overflow-hidden">
-        {/* Diamond Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-2 right-2 w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-cyan-400/25 to-blue-500/15 transform rotate-45 rounded-sm"></div>
-          <div className="absolute bottom-3 left-3 md:bottom-4 md:left-4 w-4 h-4 md:w-6 md:h-6 bg-gradient-to-br from-slate-400/20 to-slate-600/10 transform rotate-45 rounded-sm"></div>
-        </div>
+      <div className="relative overflow-hidden transform-gpu">
+        {/* Advanced Animated Background */}
+        <motion.div 
+          className="absolute inset-0 opacity-30"
+          animate={{
+            background: [
+              'conic-gradient(from 0deg at 50% 50%, rgba(6, 182, 212, 0.2) 0deg, rgba(59, 130, 246, 0.1) 120deg, rgba(139, 92, 246, 0.15) 240deg, rgba(6, 182, 212, 0.2) 360deg)',
+              'conic-gradient(from 120deg at 50% 50%, rgba(6, 182, 212, 0.2) 0deg, rgba(59, 130, 246, 0.1) 120deg, rgba(139, 92, 246, 0.15) 240deg, rgba(6, 182, 212, 0.2) 360deg)',
+              'conic-gradient(from 240deg at 50% 50%, rgba(6, 182, 212, 0.2) 0deg, rgba(59, 130, 246, 0.1) 120deg, rgba(139, 92, 246, 0.15) 240deg, rgba(6, 182, 212, 0.2) 360deg)'
+            ]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        />
         
-        <div className="relative bg-gradient-to-br from-slate-800/30 to-slate-900/50 backdrop-blur-xl border border-cyan-500/20 rounded-2xl p-4 md:p-6 h-full flex flex-col hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 group">
+        {/* Advanced Particle System */}
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            animate={{
+              x: [
+                0, 
+                Math.sin(i * 30) * 40 + Math.cos(i * 45) * 20, 
+                Math.sin(i * 60) * 30,
+                0
+              ],
+              y: [
+                0, 
+                Math.cos(i * 30) * 25 + Math.sin(i * 45) * 15, 
+                Math.cos(i * 60) * 20,
+                0
+              ],
+              scale: [0.3, 1.8, 0.8, 0.3],
+              opacity: [0.1, 0.9, 0.4, 0.1],
+              rotate: [0, 180, 360],
+              borderRadius: ['50%', '30%', '50%']
+            }}
+            transition={{
+              duration: 8 + i * 0.3,
+              repeat: Infinity,
+              delay: i * 0.4,
+              ease: "easeInOut"
+            }}
+            style={{
+              width: `${6 + i * 1.5}px`,
+              height: `${6 + i * 1.5}px`,
+              left: `${10 + (i * 8) % 80}%`,
+              top: `${5 + (i * 7) % 85}%`,
+              background: `linear-gradient(${i * 30}deg, 
+                rgba(6, 182, 212, ${0.4 + (i % 3) * 0.2}), 
+                rgba(59, 130, 246, ${0.3 + (i % 4) * 0.15}), 
+                rgba(139, 92, 246, ${0.2 + (i % 5) * 0.1})
+              )`,
+              filter: `blur(${0.5 + (i % 3) * 0.5}px)`,
+              boxShadow: `0 0 ${10 + i * 2}px rgba(6, 182, 212, ${0.3 + (i % 3) * 0.2})`
+            }}
+          />
+        ))}
+        
+        {/* Floating Geometric Shapes */}
+        {[...Array(4)].map((_, i) => (
+          <motion.div
+            key={`geo-${i}`}
+            className="absolute border border-cyan-400/30"
+            animate={{
+              rotate: [0, 360],
+              scale: [0.8, 1.3, 0.8],
+              opacity: [0.2, 0.6, 0.2],
+              borderColor: [
+                'rgba(6, 182, 212, 0.3)',
+                'rgba(59, 130, 246, 0.4)',
+                'rgba(139, 92, 246, 0.3)',
+                'rgba(6, 182, 212, 0.3)'
+              ]
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              delay: i * 2.5,
+              ease: "linear"
+            }}
+            style={{
+              width: `${20 + i * 8}px`,
+              height: `${20 + i * 8}px`,
+              left: `${70 + i * 5}%`,
+              top: `${60 + i * 8}%`,
+              clipPath: i % 2 === 0 
+                ? 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)' 
+                : 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)',
+              filter: `drop-shadow(0 0 ${8 + i * 2}px rgba(6, 182, 212, 0.4))`
+            }}
+          />
+        ))}
+        
+        <div className="relative bg-slate-800 rounded-2xl p-4 md:p-6 h-full flex flex-col overflow-hidden border border-slate-700">
+
         {/* Project Header */}
-        <div className="mb-4">
+        <div className="mb-4 relative z-20">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-            <span className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-cyan-500/20 to-blue-600/15 text-cyan-300 rounded-full border border-cyan-400/30 backdrop-blur-sm self-start">
+            <motion.span 
+              className="px-3 py-1 text-xs font-medium bg-gradient-to-r from-cyan-500/40 to-blue-600/35 text-cyan-300 rounded-full border border-cyan-400/50 backdrop-blur-sm self-start"
+              whileHover={{
+                scale: 1.1,
+                boxShadow: '0 0 25px rgba(6, 182, 212, 0.6)',
+                backgroundColor: 'rgba(6, 182, 212, 0.2)'
+              }}
+              animate={{
+                borderColor: ['rgba(6, 182, 212, 0.5)', 'rgba(59, 130, 246, 0.6)', 'rgba(6, 182, 212, 0.5)']
+              }}
+              transition={{
+                borderColor: { duration: 3, repeat: Infinity }
+              }}
+            >
               {project.category}
-            </span>
+            </motion.span>
             <div className="flex gap-2 self-end sm:self-auto">
               <motion.a
                 href={project.github}
@@ -68,7 +173,7 @@ const Projects = () => {
             </div>
           </div>
           
-          <h3 className="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-2">
             {project.title}
           </h3>
         </div>
@@ -94,13 +199,21 @@ const Projects = () => {
         {/* Technologies */}
         <div className="mt-auto">
           <div className="flex flex-wrap gap-1.5 md:gap-2">
-            {project.technologies.map((tech: string) => (
-              <span
+            {project.technologies.map((tech: string, techIndex: number) => (
+              <motion.span
                 key={tech}
-                className="px-2 py-1 text-xs bg-gradient-to-r from-slate-700/30 to-slate-800/50 text-slate-200 rounded border border-slate-500/25 hover:border-cyan-400/50 hover:bg-gradient-to-r hover:from-cyan-600/20 hover:to-blue-600/15 transition-all duration-300 backdrop-blur-sm"
+                className="px-2 py-1 text-xs bg-gradient-to-r from-slate-700/40 to-slate-800/60 text-slate-200 rounded border border-slate-500/30 hover:border-cyan-400/60 hover:bg-gradient-to-r hover:from-cyan-600/30 hover:to-blue-600/25 transition-all duration-300 backdrop-blur-sm cursor-pointer"
+                whileHover={{
+                  scale: 1.1,
+                  y: -2,
+                  boxShadow: '0 4px 12px rgba(6, 182, 212, 0.3)'
+                }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: techIndex * 0.1 }}
               >
                 {tech}
-              </span>
+              </motion.span>
             ))}
           </div>
         </div>
@@ -128,41 +241,27 @@ const Projects = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        {/* Projects Zigzag Layout */}
+        {/* Projects Timeline Layout */}
         <div className="relative">
-          {/* Connecting Line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400/50 via-cyan-300/30 to-cyan-400/50 transform -translate-x-1/2 hidden lg:block" />
+          {/* Horizontal Timeline Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent transform -translate-y-1/2 hidden lg:block" />
           
-          {projects.map((project, index) => {
-            const isLeft = index % 2 === 0;
-            return (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`relative mb-16 lg:mb-24 ${
-                  isLeft 
-                    ? 'lg:pr-8 lg:mr-8 lg:text-right' 
-                    : 'lg:pl-8 lg:ml-8 lg:text-left'
-                } lg:w-1/2 ${isLeft ? 'lg:ml-0' : 'lg:ml-auto'}`}
+                className="relative"
               >
-                {/* Timeline Dot */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                  viewport={{ once: true }}
-                  className={`absolute top-8 w-4 h-4 bg-cyan-400 rounded-full border-4 border-slate-900 shadow-[0_0_20px_rgba(6,182,212,0.6)] hidden lg:block ${
-                    isLeft ? '-right-10' : '-left-10'
-                  }`}
-                />
+
                 
                 <ProjectCard project={project} index={index} />
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -6,6 +6,7 @@ import { personalInfo, calculateTotalExperience, getCurrentPosition, experience 
 import Image from 'next/image';
 import { FaLinkedin, FaGithub, FaDownload } from 'react-icons/fa';
 
+
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden pt-20 hero-section">
       {/* 3D Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Floating 3D Cubes */}
@@ -90,8 +91,8 @@ const Hero = () => {
           />
         ))}
       </div>
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto w-full relative z-10 px-2 xs:px-4 hero-container">
+        <div className="grid lg:grid-cols-2 gap-8 xs:gap-12 lg:gap-16 items-center">
           {/* Left Side - Larger Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -101,7 +102,7 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Static Image Container */}
-              <div className="w-96 h-96 lg:w-[450px] lg:h-[450px] rounded-full p-1 relative">
+              <div className="w-96 h-96 lg:w-[450px] lg:h-[450px] rounded-full p-1 relative hero-image-container">
                 <div className="w-full h-full rounded-full overflow-hidden bg-slate-900 border-2 border-cyan-400 relative">
                   <Image
                     src="/WhatsApp Image 2025-07-25 at 6.16.15 PM.jpeg"
@@ -151,7 +152,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-5xl lg:text-7xl font-bold mb-4"
+              className="text-3xl xs:text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 hero-text"
             >
               <span className="text-cyan-400">{personalInfo.name}</span>
             </motion.h1>
@@ -160,9 +161,43 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-2xl lg:text-3xl text-gray-300 mb-6"
+              className="text-lg xs:text-xl sm:text-2xl lg:text-3xl mb-6 hero-role"
             >
-              {personalInfo.role}
+              <div className="flex flex-wrap justify-center lg:justify-start">
+                {personalInfo.role.split('').map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0, y: 50, rotateX: -90, scale: 0 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0, 
+                      rotateX: 0,
+                      scale: 1,
+                      color: ['#06b6d4', '#3b82f6', '#8b5cf6', '#06b6d4']
+                    }}
+                    transition={{
+                      opacity: { duration: 0.3, delay: 2 + index * 0.05 },
+                      y: { duration: 0.4, delay: 2 + index * 0.05 },
+                      rotateX: { duration: 0.4, delay: 2 + index * 0.05 },
+                      scale: { duration: 0.3, delay: 2 + index * 0.05 },
+                      color: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: 2 + index * 0.1 }
+                    }}
+                    whileHover={{
+                      scale: 1.2,
+                      rotateY: 15,
+                      textShadow: '0 0 20px rgba(6, 182, 212, 1)',
+                      transition: { duration: 0.2 }
+                    }}
+                    className="font-bold cursor-pointer inline-block"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      textShadow: '0 0 10px rgba(6, 182, 212, 0.5)'
+                    }}
+                  >
+                    {letter === ' ' ? '\u00A0' : letter}
+                  </motion.span>
+                ))}
+              </div>
             </motion.h2>
 
             {/* Experience Stats */}

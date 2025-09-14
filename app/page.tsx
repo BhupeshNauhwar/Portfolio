@@ -527,6 +527,8 @@ export default function Home() {
               <About />
             </motion.div>
             
+
+            
             {/* Projects Section */}
             <motion.div
               whileInView={{ 

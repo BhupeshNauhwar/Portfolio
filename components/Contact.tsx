@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { personalInfo } from '../app/data';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -137,14 +138,10 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        {/* Contact Form */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-slate-800/30 backdrop-blur-xl border border-cyan-500/20 rounded-2xl p-8 max-w-2xl mx-auto"
-        >
+        {/* Contact Section Layout */}
+        <div className="flex justify-center max-w-4xl mx-auto">
+          {/* Contact Form */}
+          <div className="bg-slate-800/30 backdrop-blur-xl border border-cyan-500/20 rounded-2xl p-8 w-full max-w-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
@@ -204,7 +201,10 @@ const Contact = () => {
               </motion.button>
             </div>
           </form>
-        </motion.div>
+          </div>
+          
+
+        </div>
       </div>
       
 
