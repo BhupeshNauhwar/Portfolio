@@ -218,7 +218,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="text-lg text-gray-300 mb-8 leading-relaxed"
+              className="text-lg text-gray-300 mb-8 leading-relaxed hero-bio"
             >
               <p className="mb-4">
                 Passionate Full-Stack Developer with expertise in modern web technologies. 

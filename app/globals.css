@@ -24,19 +24,41 @@ body {
 /* Custom breakpoint for extra small screens */
 @media (max-width: 390px) {
   .xs\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
   .xs\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
   .xs\:gap-12 {
-    gap: 3rem;
+    gap: 2rem;
   }
   .xs\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .hero-text {
+    font-size: 1.5rem !important;
+    line-height: 1.75rem !important;
+    width: 80% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  
+  .hero-role {
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    width: 80% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  
+  .hero-bio {
+    width: 80% !important;
+    margin: 0 auto 2rem auto !important;
+    text-align: center !important;
   }
 }
 
